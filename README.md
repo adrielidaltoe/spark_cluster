@@ -1,2 +1,2 @@
-# spark_cluster
+# Spark Cluster
 Setting up a Spark Cluster
