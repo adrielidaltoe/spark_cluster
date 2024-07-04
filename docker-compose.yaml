@@ -1,0 +1,23 @@
+---
+services:
+  spark-master:
+    image: spark_cluster
+    container_name: spark-master
+    hostname: spark-master
+    ports:
+      - "8080:8080"  # Spark Master Web UI
+      - "7077:7077"  # Spark Master Port
+    environment:
+      - SPARK_MODE=master
+
+  spark-worker:
+    image: spark_cluster
+    container_name: spark-worker
+    hostname: spark-worker
+    ports:
+      - "8081:8081"  # Spark Worker Web UI
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+    depends_on:
+      - spark-master
