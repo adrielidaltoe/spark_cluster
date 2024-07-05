@@ -9,6 +9,8 @@ services:
       - "7077:7077"  # Spark Master Port
     environment:
       - SPARK_MODE=master
+    volumes:
+      - ./spark_apps:/opt/spark/apps
 
   spark-worker:
     image: spark_cluster
