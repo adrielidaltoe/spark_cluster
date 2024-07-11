@@ -11,4 +11,7 @@ if [ "$SPARK_MODE" = "worker" ]; then
 fi
 
 # Keep the container running
-tail -f /dev/null
+tail -f $SPARK_HOME/logs/spark-$hostname-org.apache.spark.deploy.master.Master-*.out
+# $SPARK_HOME/logs/spark--org.apache.spark.deploy.master.Master-1-5b94f4cda072.out
+
+#Testar esse container com logs
