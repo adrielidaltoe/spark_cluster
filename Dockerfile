@@ -24,6 +24,10 @@ RUN wget https://downloads.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK
     mv /opt/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} $SPARK_HOME && \
     rm spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
 
+# Copy configuration files
+COPY log4j.properties ${SPARK_HOME}/conf/
+COPY spark-defaults.conf ${SPARK_HOME}/conf/
+
 # Copy entrypoint script to the container
 COPY entrypoint.sh /entrypoint.sh
 

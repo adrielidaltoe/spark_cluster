@@ -1,15 +1,18 @@
 from pyspark.sql import *
 
+from lib.logger import Log4J
+
 if __name__ == "__main__":
 
     spark = SparkSession.builder \
         .appName('Hello Spark') \
-        .master('local[2]') \
+        .master('spark://spark-master:7077') \
         .getOrCreate()
     
-    data_list = [('Ravi', 28),
-                 ('David', 45),
-                 ('Abdul', 37)]
-    
-    df = spark.createDataFrame(data_list).toDF('Name', 'Age')
-    df.show()
+    logger = Log4J(spark)
+
+    logger.info('Starting program')
+
+    logger.info('Finishing program')
+
+    spark.stop()
