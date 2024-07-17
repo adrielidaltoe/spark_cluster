@@ -24,3 +24,5 @@ services:
       - SPARK_MASTER_URL=spark://spark-master:7077
     depends_on:
       - spark-master
+    volumes:
+      - ./spark_apps:/opt/spark/apps

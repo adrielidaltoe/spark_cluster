@@ -13,7 +13,7 @@ def get_spark_app_config():
         raise FileNotFoundError(
             f"Configuration file {config_file_path} not found.")
     
-    config.read('/opt/spark/apps/spark.conf')
+    config.read(config_file_path)
     print(config.items())
 
     if 'SPARK_APP_CONFIGS' not in config.sections():
